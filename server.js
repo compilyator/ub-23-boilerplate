@@ -6,10 +6,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
@@ -165,6 +164,6 @@ app.get('/login', (req, res) => {
 });
 
 // Start the Server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
