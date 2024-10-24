@@ -32,11 +32,11 @@ This repository contains a boilerplate Node.js application that uses MongoDB as 
 
 3. **Set up environment variables**:
 
-   Create a `.env` file in the root directory with the following:
+   Create a `.env` file in the root directory with the following (example values provided below):
 
    ```env
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret_key
+   MONGODB_URI=mongodb+srv://user:password@cluster0.mongodb.net/boilerplate_db?retryWrites=true&w=majority
+   JWT_SECRET=mysecretkey123
    ```
 
 4. **Run the application**:
@@ -120,7 +120,7 @@ To deploy this application to Heroku, follow these steps:
    Set the `JWT_SECRET` and any other environment variables your application needs:
 
    ```bash
-   heroku config:set JWT_SECRET=your_jwt_secret_key
+   heroku config:set JWT_SECRET=mysecretkey123
    ```
 
 5. **Push the code to Heroku**:
