@@ -61,47 +61,36 @@
       const elems = document.querySelectorAll('.modal');
       M.Modal.init(elems); // Initialize modals
     });
-</script>
+  </script>
 
-<!-- Include login page script -->
-<% if (page === 'login') { %>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.querySelector('form[action="/login"]');
-    if (loginForm) {
-      loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(loginForm);
-        const data = {
-          username: formData.get('username'),
-          password: formData.get('password'),
-        };
+  <!-- Include login page script -->
+  <% if (page === 'login') { %>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.querySelector('form[action="/login"]');
+      if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(loginForm);
+          const data = {
+            username: formData.get('username'),
+            password: formData.get('password'),
+          };
 
-        try {
-          const response = await fetch('/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          });
+          try {
+            const response = await fetch('/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
 
-          const result = await response.json();
-          if (response.ok && result.success) {
-            window.location.href = '/files';
-          } else {
-            M.toast({ html: result.error || 'Error logging in', classes: 'red' });
-          }
-        } catch (error) {
-          M.toast({ html: 'Network error, please try again', classes: 'red' });
-        }
-      });
-    }
-  });
-</script>
-<% } %>
-
-            
+            const result = await response.json();
+            if (response.ok && result.success) {
+              window.location.href = '/files';
+            } else {
+              M.toast({ html: result.error || 'Error logging in', classes: 'red' });
             }
           } catch (error) {
             M.toast({ html: 'Network error, please try again', classes: 'red' });
@@ -110,5 +99,7 @@
       }
     });
   </script>
+  <% } %>
+
 </body>
 </html>
