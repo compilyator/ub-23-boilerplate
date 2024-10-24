@@ -35,9 +35,9 @@ This repository contains a boilerplate Node.js application that uses MongoDB as 
    Create a `.env` file in the root directory with the following (example values provided below):
 
    ```env
-MONGODB_URI=mongodb+srv://user:password@cluster0.mongodb.net/boilerplate_db?retryWrites=true&w=majority
-JWT_SECRET=mysecretkey123
-```
+   MONGODB_URI=mongodb+srv://user:password@cluster0.mongodb.net/boilerplate_db?retryWrites=true&w=majority
+   JWT_SECRET=mysecretkey123
+   ```
 
 4. **Run the application**:
 
