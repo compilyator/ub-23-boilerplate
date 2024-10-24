@@ -1,0 +1,39 @@
+<div class="card">
+  <h2>Uploaded Files</h2>
+  <button data-target="uploadModal" class="waves-effect waves-light btn modal-trigger">Upload New File</button>
+
+  <!-- Modal Structure -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <h4>Upload File</h4>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" name="file" required>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn">Upload</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <% if (!files || files.length === 0) { %>
+  <p>No files, please upload some</p>
+<% } else { %>
+<ul class="collection">
+<% files.forEach(function(file) { %>
+  <li class="collection-item">
+    <span><%= file.originalname %></span>
+        <a href="/download/<%= file.filename %>" class="secondary-content waves-effect waves-light btn">Download</a>
+      </li>
+    <% }); %>
+  </ul>
+<% } %>
+</div>
