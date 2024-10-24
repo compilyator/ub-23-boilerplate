@@ -83,6 +83,28 @@ This repository contains a boilerplate Node.js application that uses MongoDB as 
 - File uploads are stored in the `/uploads` directory, and metadata is saved in MongoDB.
 - Logout clears the JWT cookie, making sure that the user session is ended securely.
 
+## Running Tests
+
+To run unit tests for the application, follow these steps:
+
+1. **Set up a test environment**:
+
+   Make sure you have a separate MongoDB instance for testing purposes and set the `MONGODB_URI_TEST` environment variable in your `.env` file:
+
+   ```env
+   MONGODB_URI_TEST=mongodb+srv://user:password@cluster0.mongodb.net/test_db?retryWrites=true&w=majority
+   ```
+
+2. **Run the tests**:
+
+   Use the following command to run the tests:
+
+   ```bash
+   npm test
+   ```
+
+   This command will run the unit tests defined in the `tests` directory using Jest.
+
 ## Deployment to Heroku
 
 To deploy this application to Heroku, follow these steps:
@@ -157,4 +179,3 @@ Feel free to open issues or create pull requests if you would like to contribute
 
 - [Materialize CSS](https://materializecss.com) for the frontend styling.
 - [Express.js](https://expressjs.com) and [Mongoose](https://mongoosejs.com) for backend development.
-
